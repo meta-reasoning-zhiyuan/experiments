@@ -1,0 +1,269 @@
+2025-02-25 19:42:16,238	INFO worker.py:1841 -- Started a local Ray instance.
+[36m(main_task pid=2105103)[0m {'actor_rollout_ref': {'actor': {'clip_ratio': 0.2,
+[36m(main_task pid=2105103)[0m                                  'entropy_coeff': 0.001,
+[36m(main_task pid=2105103)[0m                                  'fsdp_config': {'fsdp_size': -1,
+[36m(main_task pid=2105103)[0m                                                  'grad_offload': True,
+[36m(main_task pid=2105103)[0m                                                  'optimizer_offload': True,
+[36m(main_task pid=2105103)[0m                                                  'param_offload': True,
+[36m(main_task pid=2105103)[0m                                                  'wrap_policy': {'min_num_params': 0}},
+[36m(main_task pid=2105103)[0m                                  'grad_clip': 1.0,
+[36m(main_task pid=2105103)[0m                                  'kl_loss_coef': 0.001,
+[36m(main_task pid=2105103)[0m                                  'kl_loss_type': 'low_var_kl',
+[36m(main_task pid=2105103)[0m                                  'optim': {'lr': 3e-07,
+[36m(main_task pid=2105103)[0m                                            'lr_warmup_steps_ratio': 0.0,
+[36m(main_task pid=2105103)[0m                                            'min_lr_ratio': None,
+[36m(main_task pid=2105103)[0m                                            'total_training_steps': -1,
+[36m(main_task pid=2105103)[0m                                            'warmup_style': 'constant'},
+[36m(main_task pid=2105103)[0m                                  'ppo_epochs': 1,
+[36m(main_task pid=2105103)[0m                                  'ppo_max_token_len_per_gpu': 16384,
+[36m(main_task pid=2105103)[0m                                  'ppo_micro_batch_size': 64,
+[36m(main_task pid=2105103)[0m                                  'ppo_mini_batch_size': 256,
+[36m(main_task pid=2105103)[0m                                  'shuffle': False,
+[36m(main_task pid=2105103)[0m                                  'strategy': 'fsdp',
+[36m(main_task pid=2105103)[0m                                  'ulysses_sequence_parallel_size': 1,
+[36m(main_task pid=2105103)[0m                                  'use_dynamic_bsz': False,
+[36m(main_task pid=2105103)[0m                                  'use_kl_loss': True},
+[36m(main_task pid=2105103)[0m                        'hybrid_engine': True,
+[36m(main_task pid=2105103)[0m                        'model': {'enable_gradient_checkpointing': True,
+[36m(main_task pid=2105103)[0m                                  'external_lib': None,
+[36m(main_task pid=2105103)[0m                                  'override_config': {},
+[36m(main_task pid=2105103)[0m                                  'path': 'Qwen/Qwen2.5-7B-Instruct-1M',
+[36m(main_task pid=2105103)[0m                                  'use_remove_padding': True},
+[36m(main_task pid=2105103)[0m                        'ref': {'fsdp_config': {'fsdp_size': -1,
+[36m(main_task pid=2105103)[0m                                                'param_offload': True,
+[36m(main_task pid=2105103)[0m                                                'wrap_policy': {'min_num_params': 0}},
+[36m(main_task pid=2105103)[0m                                'log_prob_max_token_len_per_gpu': 16384,
+[36m(main_task pid=2105103)[0m                                'log_prob_micro_batch_size': 160,
+[36m(main_task pid=2105103)[0m                                'log_prob_use_dynamic_bsz': False,
+[36m(main_task pid=2105103)[0m                                'ulysses_sequence_parallel_size': 1},
+[36m(main_task pid=2105103)[0m                        'rollout': {'do_sample': True,
+[36m(main_task pid=2105103)[0m                                    'dtype': 'bfloat16',
+[36m(main_task pid=2105103)[0m                                    'enforce_eager': True,
+[36m(main_task pid=2105103)[0m                                    'free_cache_engine': True,
+[36m(main_task pid=2105103)[0m                                    'gpu_memory_utilization': 0.6,
+[36m(main_task pid=2105103)[0m                                    'ignore_eos': False,
+[36m(main_task pid=2105103)[0m                                    'load_format': 'dummy_dtensor',
+[36m(main_task pid=2105103)[0m                                    'log_prob_max_token_len_per_gpu': 16384,
+[36m(main_task pid=2105103)[0m                                    'log_prob_micro_batch_size': 160,
+[36m(main_task pid=2105103)[0m                                    'log_prob_use_dynamic_bsz': False,
+[36m(main_task pid=2105103)[0m                                    'max_num_batched_tokens': 8192,
+[36m(main_task pid=2105103)[0m                                    'max_num_seqs': 1024,
+[36m(main_task pid=2105103)[0m                                    'n': 16,
+[36m(main_task pid=2105103)[0m                                    'name': 'vllm',
+[36m(main_task pid=2105103)[0m                                    'prompt_length': 400,
+[36m(main_task pid=2105103)[0m                                    'response_length': 2048,
+[36m(main_task pid=2105103)[0m                                    'temperature': 1.0,
+[36m(main_task pid=2105103)[0m                                    'tensor_model_parallel_size': 1,
+[36m(main_task pid=2105103)[0m                                    'top_k': -1,
+[36m(main_task pid=2105103)[0m                                    'top_p': 1}},
+[36m(main_task pid=2105103)[0m  'algorithm': {'adv_estimator': 'grpo',
+[36m(main_task pid=2105103)[0m                'gamma': 1.0,
+[36m(main_task pid=2105103)[0m                'kl_ctrl': {'kl_coef': 0.001, 'type': 'fixed'},
+[36m(main_task pid=2105103)[0m                'kl_penalty': 'kl',
+[36m(main_task pid=2105103)[0m                'lam': 1.0},
+[36m(main_task pid=2105103)[0m  'critic': {'cliprange_value': 0.5,
+[36m(main_task pid=2105103)[0m             'forward_max_token_len_per_gpu': 32768,
+[36m(main_task pid=2105103)[0m             'forward_micro_batch_size': 64,
+[36m(main_task pid=2105103)[0m             'grad_clip': 1.0,
+[36m(main_task pid=2105103)[0m             'model': {'enable_gradient_checkpointing': False,
+[36m(main_task pid=2105103)[0m                       'external_lib': None,
+[36m(main_task pid=2105103)[0m                       'fsdp_config': {'fsdp_size': -1,
+[36m(main_task pid=2105103)[0m                                       'grad_offload': False,
+[36m(main_task pid=2105103)[0m                                       'optimizer_offload': False,
+[36m(main_task pid=2105103)[0m                                       'param_offload': False,
+[36m(main_task pid=2105103)[0m                                       'wrap_policy': {'min_num_params': 0}},
+[36m(main_task pid=2105103)[0m                       'override_config': {},
+[36m(main_task pid=2105103)[0m                       'path': '~/models/deepseek-llm-7b-chat',
+[36m(main_task pid=2105103)[0m                       'tokenizer_path': 'Qwen/Qwen2.5-7B-Instruct-1M',
+[36m(main_task pid=2105103)[0m                       'use_remove_padding': False},
+[36m(main_task pid=2105103)[0m             'optim': {'lr': 1e-05,
+[36m(main_task pid=2105103)[0m                       'lr_warmup_steps_ratio': 0.0,
+[36m(main_task pid=2105103)[0m                       'min_lr_ratio': None,
+[36m(main_task pid=2105103)[0m                       'total_training_steps': -1,
+[36m(main_task pid=2105103)[0m                       'warmup_style': 'constant'},
+[36m(main_task pid=2105103)[0m             'ppo_epochs': 1,
+[36m(main_task pid=2105103)[0m             'ppo_max_token_len_per_gpu': 32768,
+[36m(main_task pid=2105103)[0m             'ppo_micro_batch_size': 64,
+[36m(main_task pid=2105103)[0m             'ppo_mini_batch_size': 256,
+[36m(main_task pid=2105103)[0m             'shuffle': False,
+[36m(main_task pid=2105103)[0m             'strategy': 'fsdp',
+[36m(main_task pid=2105103)[0m             'ulysses_sequence_parallel_size': 1,
+[36m(main_task pid=2105103)[0m             'use_dynamic_bsz': False},
+[36m(main_task pid=2105103)[0m  'data': {'max_prompt_length': 400,
+[33m(raylet)[0m [2025-02-25 19:42:26,206 E 2097714 2097744] file_system_monitor.cc:116: /tmp/ray/session_2025-02-25_19-42-15_045676_2096893 is over 95% full, available space: 88.4285 GB; capacity: 3466.18 GB. Object creation will fail if spilling is required.
+[36m(main_task pid=2105103)[0m /home/tri/miniconda3/envs/logic/lib/python3.9/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+[36m(main_task pid=2105103)[0m No module named 'vllm._version'
+[36m(main_task pid=2105103)[0m   from vllm.version import __version__ as VLLM_VERSION
+[36m(main_task pid=2105103)[0m           'max_response_length': 2048,
+[36m(main_task pid=2105103)[0m           'prompt_key': 'prompt',
+[36m(main_task pid=2105103)[0m           'return_raw_chat': False,
+[36m(main_task pid=2105103)[0m           'return_raw_input_ids': False,
+[36m(main_task pid=2105103)[0m           'tokenizer': None,
+[36m(main_task pid=2105103)[0m           'train_batch_size': 8,
+[36m(main_task pid=2105103)[0m           'train_files': 'data/kk/instruct/3ppl/train.parquet',
+[36m(main_task pid=2105103)[0m           'val_batch_size': 8,
+[36m(main_task pid=2105103)[0m           'val_files': 'data/kk/instruct/3ppl/test.parquet'},
+[36m(main_task pid=2105103)[0m  'reward_model': {'enable': False,
+[36m(main_task pid=2105103)[0m                   'forward_max_token_len_per_gpu': 32768,
+[36m(main_task pid=2105103)[0m                   'max_length': None,
+[36m(main_task pid=2105103)[0m                   'micro_batch_size': 64,
+[36m(main_task pid=2105103)[0m                   'model': {'external_lib': None,
+[36m(main_task pid=2105103)[0m                             'fsdp_config': {'min_num_params': 0,
+[36m(main_task pid=2105103)[0m                                             'param_offload': False},
+[36m(main_task pid=2105103)[0m                             'input_tokenizer': 'Qwen/Qwen2.5-7B-Instruct-1M',
+[36m(main_task pid=2105103)[0m                             'path': '~/models/FsfairX-LLaMA3-RM-v0.1',
+[36m(main_task pid=2105103)[0m                             'use_remove_padding': False},
+[36m(main_task pid=2105103)[0m                   'strategy': 'fsdp',
+[36m(main_task pid=2105103)[0m                   'ulysses_sequence_parallel_size': 1,
+[36m(main_task pid=2105103)[0m                   'use_dynamic_bsz': False},
+[36m(main_task pid=2105103)[0m  'trainer': {'critic_warmup': 0,
+[36m(main_task pid=2105103)[0m              'default_hdfs_dir': None,
+[36m(main_task pid=2105103)[0m              'default_local_dir': '',
+[36m(main_task pid=2105103)[0m              'experiment_name': 'gsm8k',
+[36m(main_task pid=2105103)[0m              'logger': ['console', 'wandb'],
+[36m(main_task pid=2105103)[0m              'n_gpus_per_node': 8,
+[36m(main_task pid=2105103)[0m              'nnodes': 1,
+[36m(main_task pid=2105103)[0m              'project_name': 'verl_examples',
+[36m(main_task pid=2105103)[0m              'save_freq': 10,
+[36m(main_task pid=2105103)[0m              'test_freq': 10,
+[36m(main_task pid=2105103)[0m              'total_epochs': 5,
+[36m(main_task pid=2105103)[0m              'total_training_steps': None}}
+[36m(main_task pid=2105103)[0m original dataset len: 900
+[36m(main_task pid=2105103)[0m filter dataset len: 900
+[36m(main_task pid=2105103)[0m original dataset len: 100
+[36m(main_task pid=2105103)[0m filter dataset len: 100
+[36m(main_task pid=2105103)[0m Size of train dataloader: 112
+[36m(main_task pid=2105103)[0m Size of val dataloader: 1
+[36m(main_task pid=2105103)[0m Total training steps: 560
+[33m(raylet)[0m Traceback (most recent call last):
+  File "python/ray/_raylet.pyx", line 2276, in ray._raylet.task_execution_handler
+  File "python/ray/_raylet.pyx", line 2135, in ray._raylet.execute_task_with_cancellation_handler
+  File "/home/tri/miniconda3/envs/logic/lib/python3.9/site-packages/ray/_private/function_manager.py", line 608, in temporary_actor_method
+    raise RuntimeError(
+RuntimeError: The actor with name WorkerDict failed to import on the worker. This may be because needed library dependencies are not installed in the worker environment:
+
+Traceback (most recent call last):
+  File "/home/tri/miniconda3/envs/logic/lib/python3.9/site-packages/transformers/utils/import_utils.py", line 1793, in _get_module
+    return importlib.import_module("." + module_name, self.__name__)
+  File "/home/tri/miniconda3/envs/logic/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/home/tri/miniconda3/envs/logic/lib/python3.9/site-packages/transformers/models/mistral/modeling_mistral.py", line 55, in <module>
+    from ...modeling_flash_attention_utils import _flash_attention_forward
+  File "/home/tri/miniconda3/envs/logic/lib/python3.9/site-packages/transformers/modeling_flash_attention_utils.py", line 30, in <module>
+    from flash_attn.bert_padding import index_first_axis, pad_input, unpad_input  # noqa
+  File "/home/tri/miniconda3/envs/logic/lib/python3.9/site-packages/flash_attn/__init__.py", line 3, in <module>
+    from flash_attn.flash_attn_interface import (
+  File "/home/tri/miniconda3/envs/logic/lib/python3.9/site-packages/flash_attn/flash_attn_interface.py", line 15, in <module>
+    import flash_attn_2_cuda as flash_attn_gpu
+ImportError: /home/tri/miniconda3/envs/logic/lib/python3.9/site-packages/flash_attn_2_cuda.cpython-39-x86_64-linux-gnu.so: undefined symbol: _ZNK3c1011StorageImpl27throw_data_ptr_access_errorEv
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/tri/miniconda3/envs/logic/lib/python3.9/site-packages/ray/_private/function_manager.py", line 647, in _load_actor_class_from_gcs
+    actor_class = pickle.loads(pickled_class)
+  File "/home/tri/zhiyuan/Logic-RL/verl/workers/fsdp_workers.py", line 37, in <module>
+    from verl.utils.model import compute_position_id_with_mask
+  File "/home/tri/zhiyuan/Logic-RL/verl/utils/model.py", line 24, in <module>
+    from transformers import AutoConfig, AutoModelForCausalLM, PretrainedConfig, MistralForSequenceClassification
+  File "<frozen importlib._bootstrap>", line 1055, in _handle_fromlist
+  File "/home/tri/miniconda3/envs/logic/lib/python3.9/site-packages/transformers/utils/import_utils.py", line 1782, in __getattr__
+    value = getattr(module, name)
+  File "/home/tri/miniconda3/envs/logic/lib/python3.9/site-packages/transformers/utils/import_utils.py", line 1781, in __getattr__
+    module = self._get_module(self._class_to_module[name])
+  File "/home/tri/miniconda3/envs/logic/lib/python3.9/site-packages/transformers/utils/import_utils.py", line 1795, in _get_module
+    raise RuntimeError(
+RuntimeError: Failed to import transformers.models.mistral.modeling_mistral because of the following error (look up to see its traceback):
+/home/tri/miniconda3/envs/logic/lib/python3.9/site-packages/flash_attn_2_cuda.cpython-39-x86_64-linux-gnu.so: undefined symbol: _ZNK3c1011StorageImpl27throw_data_ptr_access_errorEv
+
+An unexpected internal error occurred while the worker was executing a task.
+[33m(raylet)[0m [2025-02-25 19:42:36,213 E 2097714 2097744] file_system_monitor.cc:116: /tmp/ray/session_2025-02-25_19-42-15_045676_2096893 is over 95% full, available space: 88.4216 GB; capacity: 3466.18 GB. Object creation will fail if spilling is required.
+[33m(raylet)[0m [2025-02-25 19:42:46,219 E 2097714 2097744] file_system_monitor.cc:116: /tmp/ray/session_2025-02-25_19-42-15_045676_2096893 is over 95% full, available space: 88.4216 GB; capacity: 3466.18 GB. Object creation will fail if spilling is required.
+[33m(raylet)[0m [2025-02-25 19:42:56,225 E 2097714 2097744] file_system_monitor.cc:116: /tmp/ray/session_2025-02-25_19-42-15_045676_2096893 is over 95% full, available space: 88.4216 GB; capacity: 3466.18 GB. Object creation will fail if spilling is required.
+[33m(raylet)[0m [2025-02-25 19:43:06,231 E 2097714 2097744] file_system_monitor.cc:116: /tmp/ray/session_2025-02-25_19-42-15_045676_2096893 is over 95% full, available space: 88.4216 GB; capacity: 3466.18 GB. Object creation will fail if spilling is required.
+[33m(raylet)[0m [2025-02-25 19:43:16,237 E 2097714 2097744] file_system_monitor.cc:116: /tmp/ray/session_2025-02-25_19-42-15_045676_2096893 is over 95% full, available space: 88.421 GB; capacity: 3466.18 GB. Object creation will fail if spilling is required.
+[33m(raylet)[0m [2025-02-25 19:43:26,242 E 2097714 2097744] file_system_monitor.cc:116: /tmp/ray/session_2025-02-25_19-42-15_045676_2096893 is over 95% full, available space: 88.4205 GB; capacity: 3466.18 GB. Object creation will fail if spilling is required.
+[33m(raylet)[0m [2025-02-25 19:43:36,248 E 2097714 2097744] file_system_monitor.cc:116: /tmp/ray/session_2025-02-25_19-42-15_045676_2096893 is over 95% full, available space: 88.4205 GB; capacity: 3466.18 GB. Object creation will fail if spilling is required.
+[33m(raylet)[0m [2025-02-25 19:43:46,254 E 2097714 2097744] file_system_monitor.cc:116: /tmp/ray/session_2025-02-25_19-42-15_045676_2096893 is over 95% full, available space: 88.4205 GB; capacity: 3466.18 GB. Object creation will fail if spilling is required.
+[33m(raylet)[0m [2025-02-25 19:43:56,261 E 2097714 2097744] file_system_monitor.cc:116: /tmp/ray/session_2025-02-25_19-42-15_045676_2096893 is over 95% full, available space: 88.4205 GB; capacity: 3466.18 GB. Object creation will fail if spilling is required.
+[33m(raylet)[0m [2025-02-25 19:44:06,268 E 2097714 2097744] file_system_monitor.cc:116: /tmp/ray/session_2025-02-25_19-42-15_045676_2096893 is over 95% full, available space: 88.4205 GB; capacity: 3466.18 GB. Object creation will fail if spilling is required.
+[33m(raylet)[0m [2025-02-25 19:44:16,273 E 2097714 2097744] file_system_monitor.cc:116: /tmp/ray/session_2025-02-25_19-42-15_045676_2096893 is over 95% full, available space: 88.4196 GB; capacity: 3466.18 GB. Object creation will fail if spilling is required.
+[33m(raylet)[0m [2025-02-25 19:44:26,283 E 2097714 2097744] file_system_monitor.cc:116: /tmp/ray/session_2025-02-25_19-42-15_045676_2096893 is over 95% full, available space: 88.4187 GB; capacity: 3466.18 GB. Object creation will fail if spilling is required.
+[33m(raylet)[0m A worker died or was killed while executing a task by an unexpected system error. To troubleshoot the problem, check the logs for the dead worker. RayTask ID: ffffffffffffffffac29869838a8a6ebfc12322401000000 Worker ID: 544cca150944d542b03aa2355d4d4c987c06fa485c8795e3b7c615c7 Node ID: 2ab8c4a12aedcd2addbe082024e12e308eda2b60dd6d4ac6f6754ca9 Worker IP address: 192.168.7.207 Worker port: 44807 Worker PID: 2106694 Worker exit type: SYSTEM_ERROR Worker exit detail: Worker exits unexpectedly. Worker exits with an exit code None. Traceback (most recent call last):
+  File "python/ray/_raylet.pyx", line 2276, in ray._raylet.task_execution_handler
+  File "python/ray/_raylet.pyx", line 2135, in ray._raylet.execute_task_with_cancellation_handler
+  File "/home/tri/miniconda3/envs/logic/lib/python3.9/site-packages/ray/_private/function_manager.py", line 608, in temporary_actor_method
+    raise RuntimeError(
+RuntimeError: The actor with name WorkerDict failed to import on the worker. This may be because needed library dependencies are not installed in the worker environment:
+
+Traceback (most recent call last):
+  File "/home/tri/miniconda3/envs/logic/lib/python3.9/site-packages/transformers/utils/import_utils.py", line 1793, in _get_module
+    return importlib.import_module("." + module_name, self.__name__)
+  File "/home/tri/miniconda3/envs/logic/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/home/tri/miniconda3/envs/logic/lib/python3.9/site-packages/transformers/models/mistral/modeling_mistral.py", line 55, in <module>
+    from ...modeling_flash_attention_utils import _flash_attention_forward
+  File "/home/tri/miniconda3/envs/logic/lib/python3.9/site-packages/transformers/modeling_flash_attention_utils.py", line 30, in <module>
+    from flash_attn.bert_padding import index_first_axis, pad_input, unpad_input  # noqa
+  File "/home/tri/miniconda3/envs/logic/lib/python3.9/site-packages/flash_attn/__init__.py", line 3, in <module>
+    from flash_attn.flash_attn_interface import (
+  File "/home/tri/miniconda3/envs/logic/lib/python3.9/site-packages/flash_attn/flash_attn_interface.py", line 15, in <module>
+    import flash_attn_2_cuda as flash_attn_gpu
+ImportError: /home/tri/miniconda3/envs/logic/lib/python3.9/site-packages/flash_attn_2_cuda.cpython-39-x86_64-linux-gnu.so: undefined symbol: _ZNK3c1011StorageImpl27throw_data_ptr_access_errorEv
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/tri/miniconda3/envs/logic/lib/python3.9/site-packages/ray/_private/function_manager.py", line 647, in _load_actor_class_from_gcs
+    actor_class = pickle.loads(pickled_class)
+  File "/home/tri/zhiyuan/Logic-RL/verl/workers/fsdp_workers.py", line 37, in <module>
+    from verl.utils.model import compute_position_id_with_mask
+  File "/home/tri/zhiyuan/Logic-RL/verl/utils/model.py", line 24, in <module>
+    from transformers import AutoConfig, AutoModelForCausalLM, PretrainedConfig, MistralForSequenceClassification
+  File "<frozen importlib._bootstrap>", line 1055, in _handle_fromlist
+  File "/home/tri/miniconda3/envs/logic/lib/python3.9/site-packages/transformers/utils/import_utils.py", line 1782, in __getattr__
+    value = getattr(module, name)
+  File "/home/tri/miniconda3/envs/logic/lib/python3.9/site-packages/transformers/utils/import_utils.py", line 1781, in __getattr__
+    module = self._get_module(self._class_to_module[name])
+  File "/home/tri/miniconda3/envs/logic/lib/python3.9/site-packages/transformers/utils/import_utils.py", line 1795, in _get_module
+    raise RuntimeError(
+RuntimeError: Failed to import transformers.models.mistral.modeling_mistral because of the following error (look up to see its traceback):
+/home/tri/miniconda3/envs/logic/lib/python3.9/site-packages/flash_attn_2_cuda.cpython-39-x86_64-linux-gnu.so: undefined symbol: _ZNK3c1011StorageImpl27throw_data_ptr_access_errorEv
+
+An unexpected internal error occurred while the worker was executing a task.
+Error executing job with overrides: ['algorithm.adv_estimator=grpo', 'data.train_files=data/kk/instruct/3ppl/train.parquet', 'data.val_files=data/kk/instruct/3ppl/test.parquet', 'data.train_batch_size=8', 'data.val_batch_size=8', 'data.max_prompt_length=400', 'data.max_response_length=2048', 'actor_rollout_ref.model.path=Qwen/Qwen2.5-7B-Instruct-1M', 'actor_rollout_ref.actor.optim.lr=3e-7', 'actor_rollout_ref.model.use_remove_padding=True', 'actor_rollout_ref.actor.ppo_mini_batch_size=256', 'actor_rollout_ref.actor.ppo_micro_batch_size=64', 'actor_rollout_ref.actor.use_kl_loss=True', 'actor_rollout_ref.actor.kl_loss_coef=0.001', 'actor_rollout_ref.actor.kl_loss_type=low_var_kl', 'actor_rollout_ref.model.enable_gradient_checkpointing=True', 'actor_rollout_ref.actor.fsdp_config.param_offload=True', 'actor_rollout_ref.actor.fsdp_config.grad_offload=True', 'actor_rollout_ref.actor.fsdp_config.optimizer_offload=True', 'actor_rollout_ref.rollout.log_prob_micro_batch_size=160', 'actor_rollout_ref.rollout.tensor_model_parallel_size=1', 'actor_rollout_ref.rollout.name=vllm', 'actor_rollout_ref.rollout.gpu_memory_utilization=0.6', 'actor_rollout_ref.rollout.n=16', 'actor_rollout_ref.ref.log_prob_micro_batch_size=160', 'actor_rollout_ref.ref.fsdp_config.param_offload=True', 'algorithm.kl_ctrl.kl_coef=0.001', 'trainer.critic_warmup=0', 'trainer.n_gpus_per_node=8', 'trainer.nnodes=1', 'trainer.default_local_dir=', 'trainer.default_hdfs_dir=null', 'trainer.save_freq=10', 'trainer.test_freq=10', 'trainer.total_epochs=5']
+Traceback (most recent call last):
+  File "/home/tri/zhiyuan/Logic-RL/verl/trainer/main_ppo.py", line 105, in main
+    ray.get(main_task.remote(config))
+  File "/home/tri/miniconda3/envs/logic/lib/python3.9/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+  File "/home/tri/miniconda3/envs/logic/lib/python3.9/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+  File "/home/tri/miniconda3/envs/logic/lib/python3.9/site-packages/ray/_private/worker.py", line 2772, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+  File "/home/tri/miniconda3/envs/logic/lib/python3.9/site-packages/ray/_private/worker.py", line 919, in get_objects
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(AssertionError): [36mray::main_task()[39m (pid=2105103, ip=192.168.7.207)
+  File "/home/tri/zhiyuan/Logic-RL/verl/trainer/main_ppo.py", line 190, in main_task
+    trainer.init_workers()
+  File "/home/tri/zhiyuan/Logic-RL/verl/trainer/ppo/ray_trainer.py", line 528, in init_workers
+    wg_dict = self.ray_worker_group_cls(resource_pool=resource_pool, ray_cls_with_init=worker_dict_cls)
+  File "/home/tri/zhiyuan/Logic-RL/verl/single_controller/ray/base.py", line 197, in __init__
+    self._init_with_resource_pool(resource_pool=resource_pool,
+  File "/home/tri/zhiyuan/Logic-RL/verl/single_controller/ray/base.py", line 274, in _init_with_resource_pool
+    assert register_center_actor is not None, f"failed to get register_center_actor: {self.name_prefix}_register_center in {list_named_actors(all_namespaces=True)}"
+AssertionError: failed to get register_center_actor: V9zrH5_register_center in []
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
