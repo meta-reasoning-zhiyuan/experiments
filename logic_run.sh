@@ -7,7 +7,7 @@
 #SBATCH --mem=1024G                      # 总内存分配（优化为 512GB）
 #SBATCH --time=3-00:00:00               # 最大运行时间 3 天
 #SBATCH --partition=ml.p5.48xlarge     # 指定计算分区
-#SBATCH --nodelist=ip-10-1-99-110
+#SBATCH --nodelist=ip-10-1-17-175
 #SBATCH --gres=gpu:8                    # 请求 1 个 GPU，确保与 `ml.p5.48xlarge` 兼容
 
 echo "[$(date)] 作业开始执行..."
@@ -51,7 +51,7 @@ nvidia-smi
 
 echo "[$(date)] 启动 GPU 使用率监控..."
 while true; do
-    nvidia-smi >> /fsx/home/zhiyuan/logic-rl-formula-ppo/gpu_usage.log  # 使用 >> 追加日志
+    nvidia-smi >> /fsx/home/zhiyuan/logic-rl-formula-mix-tasks/gpu_usage.log  # 使用 >> 追加日志
     sleep 2
 done &
 GPU_MONITOR_PID=$!
@@ -76,9 +76,9 @@ fi
 
 
 # 切换到指定目录并执行脚本，同时使用 tee 记录输出
-cd /fsx/home/zhiyuan/logic-rl-formula-ppo
+cd /fsx/home/zhiyuan/logic-rl-formula-mix-tasks
 echo "[$(date)] 执行 curriculm_final.sh 脚本..."
-sh curriculm_final_logic.sh | tee /fsx/home/zhiyuan/logic-rl-formula-ppo/curriculm_final_output.log
+sh curriculm_final_logic.sh | tee /fsx/home/zhiyuan/logic-rl-formula-mix-tasks/curriculm_final_output.log
 
 # 程序执行完毕后，结束 GPU 监控进程
 echo "[$(date)] 程序执行完毕，停止 GPU 使用率监控..."

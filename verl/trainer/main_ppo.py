@@ -17,7 +17,7 @@ Note that we don't combine the main with ray_trainer as ray_trainer is used by o
 
 from verl import DataProto
 import torch
-from verl.utils.reward_score import gsm8k, math, multiply, countdown, kk
+from verl.utils.reward_score import gsm8k, math, multiply, countdown, kk, formula, backward_reasoning
 from verl.trainer.ppo.ray_trainer import RayPPOTrainer
 
 
@@ -30,8 +30,10 @@ def _select_rm_score_fn(data_source):
         return multiply.compute_score
     elif "countdown" in data_source:
         return countdown.compute_score
-    elif "logic_assignment" in data_source:
-        return kk.compute_score
+    elif "formula" in data_source:
+        return formula.compute_score
+    elif "backward" in data_source:
+        return backward_reasoning.compute_score
     else:
         raise NotImplementedError
 

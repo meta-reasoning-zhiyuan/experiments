@@ -3,14 +3,18 @@ set -x
 export VLLM_ATTENTION_BACKEND=XFORMERS
 export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
 BASE_CONFIG="\
+    algorithm.adv_estimator=reinforce_plus_plus \
     data.train_batch_size=8 \
     data.val_batch_size=8 \
     data.max_prompt_length=512 \
-    data.max_response_length=4096 \
-    actor_rollout_ref.actor.optim.lr=4e-7 \
+    data.max_response_length=8192 \
+    actor_rollout_ref.actor.optim.lr=5e-7 \
     actor_rollout_ref.model.use_remove_padding=True \
     actor_rollout_ref.actor.ppo_mini_batch_size=256 \
     actor_rollout_ref.actor.ppo_micro_batch_size=32 \
+    actor_rollout_ref.actor.use_kl_loss=True \
+    actor_rollout_ref.actor.kl_loss_coef=0.001 \
+    actor_rollout_ref.actor.kl_loss_type=low_var_kl \
     actor_rollout_ref.model.enable_gradient_checkpointing=True \
     actor_rollout_ref.actor.fsdp_config.param_offload=False \
     actor_rollout_ref.actor.fsdp_config.grad_offload=False \
@@ -23,32 +27,30 @@ BASE_CONFIG="\
     actor_rollout_ref.rollout.n=4 \
     actor_rollout_ref.ref.log_prob_micro_batch_size=160 \
     actor_rollout_ref.ref.fsdp_config.param_offload=True \
-    critic.optim.lr=1e-5 \
-    critic.model.use_remove_padding=True \
-    critic.ppo_micro_batch_size=8 \
     algorithm.kl_ctrl.kl_coef=0.001 \
+    trainer.critic_warmup=0 \
     trainer.logger=['console','wandb'] \
     trainer.project_name='meta-reasoning' \
     trainer.n_gpus_per_node=8 \
     trainer.nnodes=1 \
-    trainer.save_freq=60 \
+    trainer.save_freq=120 \
     trainer.test_freq=10 \
-    trainer.total_epochs=5"
+    trainer.total_epochs=9"
 
 # Define the ppl values for curriculum learning
 # PPL_VALUES="1 2 3 4"
-PPL_VALUES="1 2 3 4"
+PPL_VALUES="1 2 3"
 
 # Initial model path
 MODEL_PATH="Qwen/Qwen2.5-7B-Instruct"
 # MODEL_PATH="/fsx/home/zhiyuan/logic-rl-formula/checkpoints/meta-reasoning/RF++-Qwen-7B-curriculum-formula-aws-3/actor/epoch_global_step_120"
-EXPERIMENT_NAME="RF++-Qwen-7B-curriculum-formula-ppo"
+EXPERIMENT_NAME="RF++-Qwen-7B-curriculum-formula-mix-tasks"
 
 
 for ppl in $PPL_VALUES; do
     echo "Starting training for level ${ppl}"
 
-    TRAIN_FILE="./data/kk/${ppl}/train.parquet"
+    TRAIN_FILE="./data/mix/${ppl}/train.parquet"
     VAL_FILE="./data/kk/3/test.parquet" # standard bench
     
     # Define experiment name for this stage
@@ -61,7 +63,6 @@ for ppl in $PPL_VALUES; do
         data.train_files=${TRAIN_FILE} \
         data.val_files=${VAL_FILE} \
         actor_rollout_ref.model.path='\"${MODEL_PATH}\"' \
-        critic.model.path='\"${MODEL_PATH}\"' \
         trainer.experiment_name=${CURRENT_EXPERIMENT_NAME} \
         $@"
 
